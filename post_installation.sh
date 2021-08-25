@@ -13,7 +13,7 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] 
 
 
 apt update -y
-apt install -y net-tools docker-ce docker-ce-cli containerd.io
+apt install -y net-tools
 
 ## Starting Nextcloud Installation
 # Creating environnmente variables
