@@ -18,8 +18,8 @@ apt dist-update -y
 
 ## Starting Nextcloud Installation
 # Creating environnmente variables
-PUID=$uid 
-PGID=$gid
+uid=0 
+gid=0
 rootfolder=/root/nextcloud
 http=80
 https=443
