@@ -3,10 +3,16 @@
 # Jonas Sauge
 
 ## Starting Nextcloud Installation
-# Creating environnmente variables
-uid=
-gid=
-rootfolder=/root/nextcloud
+# Creating environnment and variables
+
+useradd nextcloud
+gid=$(id -g $username)
+uid=$(id -u $username)
+
+rootfolder=/mnt/nextcloud
+mkdir $rootfolder
+chmod $uid:$gid
+
 http=80
 https=443
 dbusername=nextcloud
