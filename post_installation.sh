@@ -5,7 +5,7 @@
 ## Installing sources, dependencies and updating host
 # Add Docker’s official GPG key:
 
-echo "@reboot bash /root/startup.sh" > /etc/crontab
+echo "@reboot bash /root/startup.sh" >> /etc/crontab
 # Install Docker along network tools
 
 ## Starting Nextcloud Installation
