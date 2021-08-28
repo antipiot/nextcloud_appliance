@@ -27,6 +27,6 @@ Database password: $mysqlnextcloudpwd \
 Database hostname: $dbhostname \ 
 Database name: $dbname \ 
 Database hostname: $dbhostname \ 
-Database root password: $mysqlrootpwd" > $rootfolder/nextcloud/credentials.txt
+Database root password: $mysqlrootpwd" > $rootfolder/credentials.txt
 
 rm -f $0
