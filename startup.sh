@@ -12,7 +12,7 @@ uid=$(id -u $username)
 
 rootdatafolder=/mnt/nextcloud
 mkdir $rootdatafolder
-chmown -R $uid:$gid $rootdatafolder
+chown -R $uid:$gid $rootdatafolder
 
 http=80
 https=443
