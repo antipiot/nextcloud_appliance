@@ -1,11 +1,20 @@
 #!/bin/sh
 
 # Jonas Sauge
+# Settings
+
+username=nextcloud
+http=80
+https=443
+dbusername=nextcloud
+dbname=nextcloud
+dbhostname=db
+mysqlrootpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </dev/urandom | head -c 20)
+mysqlnextcloudpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </dev/urandom | head -c 20)
 
 ## Starting Nextcloud Installation
 # Creating environnment and variables
 
-username=nextcloud
 useradd $username
 gid=$(id -g $username)
 uid=$(id -u $username)
@@ -15,13 +24,6 @@ mkdir $rootdatafolder
 mkdir $rootdatafolder/database
 chown -R $uid:$gid $rootdatafolder
 
-http=80
-https=443
-dbusername=nextcloud
-dbname=nextcloud
-dbhostname=db
-mysqlrootpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </dev/urandom | head -c 20)
-mysqlnextcloudpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </dev/urandom | head -c 20)
 
 
 # Starting mysql container
