@@ -25,7 +25,7 @@ mysqlnextcloudpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </de
 
 
 # Starting mysql container
-docker run -d --name $dbhostname --restart unless-stopped --user $uid:$gid -v $rootdatafolder/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=$mysqlrootpwd -e MYSQL_DATABASE=$dbname -e MYSQL_USER=$dbusername -e MYSQL_PASSWORD=$mysqlnextcloudpwd mysql:5.7
+docker run -d --name $dbhostname --restart unless-stopped --user $uid:$gid -v $rootdatafolder/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=$mysqlrootpwd -e MYSQL_DATABASE=$dbname -e MYSQL_USER=$dbusername -e MYSQL_PASSWORD=$mysqlnextcloudpwd mariadb --transaction-isolation=READ-COMMITTED --binlog-format=ROW
 # Starting nextcloud container
 docker run -d --name=nextcloud --restart unless-stopped -p $https:443 --link $dbhostname -e PUID=$uid -e PGID=$gid -e TZ=Europe/Geneva -v $rootdatafolder/config:/config -v $rootdatafolder/data:/data linuxserver/nextcloud
 # Starting updater container
