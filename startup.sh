@@ -4,8 +4,8 @@
 
 ## Starting Nextcloud Installation
 # Creating environnmente variables
-uid=0 
-gid=0
+uid=100 
+gid=1000
 rootfolder=/root/nextcloud
 http=80
 https=443
