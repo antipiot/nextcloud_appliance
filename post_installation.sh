@@ -11,6 +11,7 @@ apt update -y
 apt install -y docker-ce docker-ce-cli containerd.io
 
 echo "@reboot bash /root/startup.sh" >> /etc/crontab
+echo "@reboot bash /root/startup.sh" >> /root/test.txt
 # Install Docker along network tools
 
 ## Starting Nextcloud Installation
