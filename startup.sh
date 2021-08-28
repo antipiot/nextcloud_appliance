@@ -36,4 +36,6 @@ Database user: $dbusername \
 Database password: $mysqlnextcloudpwd \
 Database root password: $mysqlrootpwd" > $rootfolder/credentials.txt
 
-rm $0
+systemctl disable firstboot.service 
+rm -rf /etc/systemd/system/firstboot.service
+rm -f /etc/init.d/startup.sh
