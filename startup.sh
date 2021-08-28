@@ -12,7 +12,7 @@ https=443
 dbusername=nextcloud
 dbname=nextcloud
 dbhostname=db
-mysqlrootpwd=test
+mysqlnextcloudpwd=test
 #mysqlrootpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </dev/urandom | head -c 20)
 #mysqlnextcloudpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </dev/urandom | head -c 20)
 
