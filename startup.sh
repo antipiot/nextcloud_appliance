@@ -10,8 +10,8 @@ useradd $username
 gid=$(id -g $username)
 uid=$(id -u $username)
 
-rootfolder=/mnt/nextcloud
-mkdir $rootfolder
+rootdatafolder=/mnt/nextcloud
+mkdir $rootdatafolder
 chmod $uid:$gid
 
 http=80
@@ -24,7 +24,7 @@ mysqlnextcloudpwd=$(LC_ALL=C tr -dc 'A-Za-z0-9!#%&\()*+,-./:;<=>?@[\]^_{}~' </de
 
 
 # Starting mysql container
-docker run -d --name $dbhostname --restart unless-stopped --user $uid:$gid -v $rootfolder/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=$mysqlrootpwd -e MYSQL_DATABASE=$dbname -e MYSQL_USER=$dbusername -e MYSQL_PASSWORD=$mysqlnextcloudpwd mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+docker run -d --name $dbhostname --restart unless-stopped --user $uid:$gid -v $rootdatafolder/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=$mysqlrootpwd -e MYSQL_DATABASE=$dbname -e MYSQL_USER=$dbusername -e MYSQL_PASSWORD=$mysqlnextcloudpwd mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 # Starting nextcloud container
 docker run -d --name=nextcloud --restart unless-stopped -p $https:443 --link $dbhostname -e PUID=$uid -e PGID=$gid -e TZ=Europe/Geneva -v $rootdatafolderc/config:/config -v $rootdatafolder/data:/data linuxserver/nextcloud
 # Starting updater container
