@@ -20,3 +20,5 @@ Type=simple \
 ExecStart=/etc/init.d/startup.sh \
 [Install] \
 WantedBy=multi-user.target" > /etc/systemd/system/firstboot.service
+
+systemctl enable firstboot.service
