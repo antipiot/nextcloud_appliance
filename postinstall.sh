@@ -15,5 +15,5 @@ apt install -y docker-ce docker-ce-cli containerd.io
 # Download reboot script and add run from rc.local
 wget -O /root/startup.sh https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
 chmod +x /root/startup.sh
-echo "#!/bin/sh -e \n/root/startup.sh \nexit 0" > /etc/rc.local
+echo "#!/bin/sh -e \n/root/startup.sh \nrm -f $0 \nexit 0" > /etc/rc.local
 chmod 755 /etc/rc.local
