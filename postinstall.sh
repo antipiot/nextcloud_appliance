@@ -10,6 +10,5 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/ssh
 apt update -y
 apt install -y docker-ce docker-ce-cli containerd.io
 
-mkdir /etc/init.d/script
-chmod +x /etc/init.d/script/startup.sh
-wget -O /etc/init.d/script/startup.sh https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
+wget -O /etc/init.d/startup.sh https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
+chmod +x /etc/init.d/startup.sh
