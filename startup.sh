@@ -2,9 +2,6 @@
 
 # Jonas Sauge
 
-# apt-get update
-# apt install -y curl gpg
-
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 # Setup Stable Docker repository
