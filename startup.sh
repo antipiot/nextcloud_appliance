@@ -34,6 +34,7 @@ echo "Database user: $dbusername \
 Database password: $mysqlnextcloudpwd \
 Database hostname: $dbhostname \
 Database name: $dbname \ 
-Database hostname: $dbhostname" > $rootfolder/nextcloud/credentials.txt
+Database hostname: $dbhostname \
+Database root password: $mysqlnextcloudpwd" > $rootfolder/nextcloud/credentials.txt
 
 
