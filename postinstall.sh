@@ -10,15 +10,5 @@ sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/ssh
 apt update -y
 apt install -y docker-ce docker-ce-cli containerd.io
 
-wget -O /etc/init.d/startup.sh https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
-chmod +x /etc/init.d/startup.sh
-
-echo "[Unit] \
-Description=Docker startup script \
-[Service] \
-Type=simple \
-ExecStart=/etc/init.d/startup.sh \
-[Install] \
-WantedBy=multi-user.target" > /etc/systemd/system/firstboot.service
-
-systemctl enable firstboot.service
+wget -O /etc/init.d/startup https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
+chmod +x /etc/init.d/startup
