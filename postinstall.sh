@@ -11,6 +11,7 @@ apt update -y
 apt install -y docker-ce docker-ce-cli containerd.io
 
 wget -O /root/startup.sh https://raw.githubusercontent.com/antipiot/nextcloud_appliance/main/startup.sh
+chmod +x /root/startup.sh
 
 echo "@reboot bash /root/startup.sh" >> /etc/crontab
 echo "@reboot bash /root/startup.sh" >> /root/test.txt
