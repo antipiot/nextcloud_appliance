@@ -12,6 +12,7 @@ uid=$(id -u $username)
 
 rootdatafolder=/mnt/nextcloud
 mkdir $rootdatafolder
+mkdir $rootdatafolder/database
 chown -R $uid:$gid $rootdatafolder
 
 http=80
@@ -29,10 +30,10 @@ docker run -d --name $dbhostname --restart unless-stopped --user $uid:$gid -v $r
 docker run -d --name=nextcloud --restart unless-stopped -p $https:443 --link $dbhostname -e PUID=$uid -e PGID=$gid -e TZ=Europe/Geneva -v $rootdatafolderc/config:/config -v $rootdatafolder/data:/data linuxserver/nextcloud
 # Starting updater container
 docker run -d --name watchtower --restart=unless-stopped -e WATCHTOWER_SCHEDULE="0 0 4 * * *" -e WATCHTOWER_CLEANUP="true" -e TZ="Europe/paris" -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower
-echo "Database user: $dbusername \n
-Database password: $mysqlnextcloudpwd \n
-Database name: $dbname \n
-Database hostname: $dbhostname \n
+echo "Database user: $dbusername
+Database password: $mysqlnextcloudpwd
+Database name: $dbname
+Database hostname: $dbhostname
 Database root password: $mysqlrootpwd" > $rootdatafolder/credentials.txt
 
 rm -f $0
